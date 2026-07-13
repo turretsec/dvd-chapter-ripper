@@ -1,0 +1,13 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+
+.DS_Store
+Thumbs.db
+
+*.mkv
+*.mp4
+*.mov
+*.vob

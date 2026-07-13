@@ -1,0 +1,6 @@
+# No external Python packages are required. This project only uses the
+# standard library (argparse, json, subprocess, pathlib).
+#
+# The real dependency is ffmpeg/ffprobe, which is a system binary, not a
+# pip package. Install it via your OS package manager or https://ffmpeg.org/
+# and make sure `ffmpeg` and `ffprobe` are on your PATH.
