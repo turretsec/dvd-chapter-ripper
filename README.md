@@ -10,9 +10,9 @@ This small project was created because I needed to rip about 100 *iMemories* DVD
 1. [**MakeMKV**](https://www.makemkv.com/) rips the DVD title (not Backup
 mode! A normal title rip preserves the chapter markers in a way
 `ffprobe` can read).
-2. `split\_chapters.py` reads those chapter markers with `ffprobe` and cuts
+2. `split_chapters.py` reads those chapter markers with `ffprobe` and cuts
 the file into one `.mp4` per chapter with `ffmpeg`.
-3. `process\_all\_discs.py` is a no-arguments wrapper that scans a folder of
+3. `process_all_discs.py` is a no-arguments wrapper that scans a folder of
 disc backups and processes anything new, skipping discs already split. This is
  for if you're working through a big stack of old discs over time.
 
@@ -27,24 +27,24 @@ No external Python packages are required (see `requirements.txt`).
 
 ## Folder layout
 
-This tool expects (and `process\_all\_discs.py` will create) a layout like:
+This tool expects (and `process_all_discs.py` will create) a layout like:
 
 ```
 MyArchive/
-├── 01\_Videos/
-│   ├── 01\_Disc\_Backups/       <- put your ripped .mkv files here
+├── 01_Videos/
+│   ├── 01_Disc_Backups/       <- put your ripped .mkv files here
 │   │   └── <disc-id>.mkv
-│   └── 02\_Chapter\_Rips/       <- split chapters land here
+│   └── 02_Chapter_Rips/       <- split chapters land here
 │       └── <disc-id>/
-│           ├── <disc-id>\_Ch01.mp4
-│           └── <disc-id>\_Ch02.mp4
-└── \_tools/
+│           ├── <disc-id>_Ch01.mp4
+│           └── <disc-id>_Ch02.mp4
+└── _tools/
     └── dvd-chapter-splitter/  <- this repo, cloned/copied in here
 ```
 
 Folder names are configurable in `config.py` if your layout differs.
 
-`<disc-id>` can be anything you like -- a sequential label (`DVD01`), or
+`<disc-id>` can be anything you like - a sequential label (`DVD01`), or
 (recommended, if your discs have one) the barcode/serial number already
 printed on the disc, so there's no separate numbering scheme to keep in
 sync with the physical stack.
@@ -109,7 +109,7 @@ Only steps 1-5 are one-time setup -- after that it's rip -> double-click -> revi
 ### One disc at a time
 
 ```bash
-python3 split\_chapters.py \\
+python3 split_chapters.py \\
   --input "/path/to/1234567-0000001.mkv" \\
   --disc-id "1234567-0000001" \\
   --archive-root "/path/to/MyArchive"
@@ -124,7 +124,7 @@ since cuts snap to the nearest keyframe)
 
 ### Batch mode (recommended)
 
-Drop this repo into `<archive-root>/\_tools/dvd-chapter-splitter/`, set up a
+Drop this repo into `<archive-root>/_tools/dvd-chapter-splitter/`, set up a
 virtual environment there (`python -m venv .venv`), then either:
 
 ```bash
@@ -133,7 +133,7 @@ python3 process\_all\_discs.py
 
 or, on Windows, just double-click `Run\_Ripper.bat`.
 
-It scans `01\_Disc\_Backups/` for any `.mkv` file, splits anything it hasn't
+It scans `01_Disc_Backups/` for any `.mkv` file, splits anything it hasn't
 already processed, and tells you what it did. Re-run it any time after
 backing up more discs. Already processed discs are skipped automatically.
 
